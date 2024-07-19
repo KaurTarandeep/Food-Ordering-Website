@@ -1,0 +1,213 @@
+.siders{
+    /* background-color: blueviolet; */
+    display: flex;
+}
+.rightsider{
+    /* background-color: aqua; */
+    width: 25%;
+    margin-top: 20px;
+    margin-right: 50px;
+    margin-left: 20px;
+    padding: 10px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    height: 3100px;
+    float: right;
+}
+.headstyle{
+    /* background-color: beige; */
+    text-align: center;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    font-size: 13px;
+}
+.imgofrightsider{
+    margin-top: 20px;
+    /* background-color: bisque; */
+}
+.imgofrightsider img{
+    width: 300px;
+    height: 200px;
+}
+.contentofrightsider{
+    margin-top: 10px;
+    color: #3b3939;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+.signimages{
+    /* background-color: blue; */
+    padding: 10px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.signimage img{
+    margin-top: 10px 20px;
+    /* padding: 10px; */
+    background-color: aqua;
+    /* float: ; */
+    width: 140px;
+    height: 70px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.socialmediaicons{
+    /* background-color: aqua; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    column-gap: 12px;
+    /* align-items: center; */
+    /* text-align: center; */
+    justify-content: center;
+}
+.iconincircle{
+    padding: 8px;
+    border-radius: 50%;
+    border-color: #ddd;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+    font-size: 16px;
+}
+.fb{
+    color: darkblue;
+}
+.twitter{
+    color: skyblue;
+}
+.insta{
+    color: darkslateblue;
+}
+.pin{
+    color: darkred;
+}
+.youtube{
+    color: rgb(218, 71, 71);
+}
+.rss{
+    color: orangered;
+}
+.colorofhead{
+    align-items: center;
+    /* text-align: center; */
+    /* justify-content: center; */
+    /* background-color: bisque; */
+    display: grid;
+
+    padding: 5px;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+.colorofhead a{
+    color: rgb(12, 12, 12);
+    text-decoration: none;
+    /* position: absolute; */
+    /* align-items: center;
+    text-align: center;
+    justify-content: center;
+    background-color: antiquewhite; */
+}
+.contr{
+    /* background-color: aqua; */
+    display: grid;
+    counter-reset: section;
+    position: relative;
+    margin-bottom: 10px;
+    /* row-gap: 10px; */
+    /* padding: 10px; */
+}
+.rows{
+    padding-top: 10px;
+    display: flex;
+    /* background-color: bisque; */
+    /* position: absolute; */
+}
+.rows::after{
+    position: absolute;
+    z-index: 9;
+    left: 250px;
+    counter-increment:section;
+    content: ""counter(section)"";
+    font-size: 90px;
+    font-weight: 700;
+    font-style: italic;
+    font-family: 'Open Sans', sans-serif;
+    color: rgba(240, 237, 233, 0.5);
+    cursor: pointer;
+    line-height: 55px;
+}
+.rows:last-child::after{
+    left: 200px;
+}
+.rows:hover::after{
+    color: rgb(214, 79, 55,0.5);
+}
+
+.colcontents{
+    margin-bottom: 20px;
+}
+.rgt{
+    margin-top: -5px;
+    background-color: #fcf9f5;
+    float: right;
+    border: 1px solid #fcf9f5;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-size: 13px;
+    color: #222;
+    font-weight: 600;
+    line-height: 25px;
+}
+.imgofrightsiders{
+    margin-top: 20px;
+    /* background-color: bisque; */
+}
+.imgofrightsiders img{
+    width: 300px;
+    height: 100px;
+}
+.imgofrightside{
+    margin-top: 20px;
+    /* background-color: bisque;    */
+}
+.imgofrightside img{
+    width: 300px;
+    /* height: 400px; */
+}
+.heads{
+    text-transform: uppercase;
+    border: 1.5px solid #fc4544;
+    font-size: 6px;
+    padding: 10px;
+    /* display: block; */
+    letter-spacing: 1px;
+    /* background-color: brown; */
+    /* outline: 1px solid #fc4544; */
+    /* vertical-align: bottom; */
+}
+
+.heads::after{
+    position: relative;
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 6px;
+    border-style: solid;
+    top: 23px;
+    /* bottom: -00px; */
+    /* bottom: 200px; */
+    border-left-color:transparent;
+    border-right-color:transparent ;
+    border-top-color:red ;
+    /* border-bottom-color:black ; */
+    border-bottom-color:white;
+    left: 140px;
+}
