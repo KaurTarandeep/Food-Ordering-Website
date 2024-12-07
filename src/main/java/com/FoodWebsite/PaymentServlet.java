@@ -68,7 +68,7 @@ public class PaymentServlet extends HttpServlet {
             }
             System.out.println("Redirecting to order confirmation page...");
             // Redirect to the order confirmation page
-            response.sendRedirect("orderConfirmation.jsp");
+            response.sendRedirect("address.jsp");
         } catch (SQLException e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error occurred during payment");

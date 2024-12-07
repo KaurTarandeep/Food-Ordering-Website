@@ -74,8 +74,8 @@ public class CartServlet extends HttpServlet {
         out.println("    font-size: 18px;");
         out.println("    color: #fff;");
         out.println("    background-color: #4CAF50;");
-        out.println("    border: none;"
-        		+"margin-top:20px;");
+        out.println("    border: none;");
+        out.println("    margin-top: 20px;");
         out.println("    border-radius: 5px;");
         out.println("    cursor: pointer;");
         out.println("    transition: background-color 0.3s;");
@@ -97,23 +97,23 @@ public class CartServlet extends HttpServlet {
         out.println(".remove-button:hover {");
         out.println("    background-color: #c62828;");
         out.println("}");
-        out.println(" button {\r\n"
-        		+ "            padding: 10px 20px;\r\n"
-        		+ "            font-size: 16px;\r\n"
-        		+ "            color: #fff;\r\n"
-        		+ "            background-color: #4CAF50;\r\n"
-        		+ "            border: none;\r\n"
-        		+ "            border-radius: 5px;\r\n"
-        		+ "            cursor: pointer;\r\n"
-        		+ "            transition: background-color 0.3s;\r\n"
-        		+ "        }\r\n"
-        		+ "        button:hover {\r\n"
-        		+ "            background-color: #45a049;\r\n"
-        		+ "        }");
-        out.println("  h1, h2 {\r\n"
-        		+ "            color: #333;\r\n"
-        		+ "            text-align: center;\r\n"
-        		+ "        }");
+        out.println("button {");
+        out.println("    padding: 10px 20px;");
+        out.println("    font-size: 16px;");
+        out.println("    color: #fff;");
+        out.println("    background-color: #4CAF50;");
+        out.println("    border: none;");
+        out.println("    border-radius: 5px;");
+        out.println("    cursor: pointer;");
+        out.println("    transition: background-color 0.3s;");
+        out.println("}");
+        out.println("button:hover {");
+        out.println("    background-color: #45a049;");
+        out.println("}");
+        out.println("h1, h2 {");
+        out.println("    color: #333;");
+        out.println("    text-align: center;");
+        out.println("}");
         out.println("</style>");
         out.println("</head>");
         out.println("<body>");
@@ -121,7 +121,11 @@ public class CartServlet extends HttpServlet {
         out.println("<div class='container'>");
 
         out.println("<h1>Cart</h1>");
+        out.println("<button onclick='PurchaseMore()' style='float:right;'>Want to Purchase More</button>");
+
         double totalPrice = 0.0;
+        boolean isCartEmpty = true;
+
         String query1 = "SELECT SUM(price) AS total_price FROM cart";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -131,6 +135,7 @@ public class CartServlet extends HttpServlet {
             try (PreparedStatement statement = connection.prepareStatement(query)) {
                 try (ResultSet resultSet = statement.executeQuery()) {
                     while (resultSet.next()) {
+                        isCartEmpty = false; // Cart is not empty
                         String type = resultSet.getString("type");
                         String description = resultSet.getString("description");
                         double price = resultSet.getDouble("price");
@@ -143,12 +148,12 @@ public class CartServlet extends HttpServlet {
                         out.println("<h3>" + description + "</h3>");
                         out.println("<p>Price: " + price + "</p>");
                         out.println("<button class='remove-button' onclick='removeFromCart(\"" + productId + "\")'>Remove</button>");
-                        
                         out.println("</div>");
                         out.println("</div>");
                     }
                 }
             }
+            
             try (PreparedStatement statement = connection.prepareStatement(query1)) {
                 try (ResultSet resultSet = statement.executeQuery()) {
                     if (resultSet.next()) {
@@ -161,27 +166,30 @@ public class CartServlet extends HttpServlet {
             e.printStackTrace();
         }
       
-         // Side panel for bill
-        out.println("<div id='bill-panel'>");
-        out.println("<h2>Bill</h2>");
-        out.println("<p>Total Price: " + totalPrice + "</p>");
-        out.println("</div>");
-//        out.println("<button class='button' onclick='redirectToConfirmationPage()'>Confirm to Place Order</button>");
-       out.println("  <h2>Payment Options</h2>");
-       out.println("<button onclick='payWithCOD(" + ProductId + ")'>Pay with COD</button>");
-       out.println("<button onclick='payWithCard(" + ProductId + ")'>Pay with Card</button>");
-
+        // Conditionally render the bill panel
+        if (!isCartEmpty) {
+            out.println("<div id='bill-panel'>");
+            out.println("<h2>Bill</h2>");
+            out.println("<p>Total Price: " + totalPrice + "</p>");
+            out.println("</div>");
+            out.println("<h2>Payment Options</h2>");
+            out.println("<button onclick='payWithCOD(\"" + ProductId + "\")'>Pay with COD</button>");
+            out.println("<button onclick='payWithCard(\"" + ProductId + "\")'>Pay with Card</button>");
+        } else {
+            out.println("<h1>Your cart is empty.</h1>");
+        }
+      
         out.println("</div>");
         out.println("<script>");
-        out.println(" function payWithCOD(productId) {\r\n"
-        		+ "    // Redirect to COD payment page with productId parameter\r\n"
-        		+ "    window.location.href = 'codPage.jsp?productId=' + productId;\r\n"
-        		+ "}\r\n"
-        		+ "\r\n"
-        		+ "function payWithCard(productId) {\r\n"
-        		+ "    // Redirect to card payment page with productId parameter\r\n"
-        		+ "    window.location.href = 'cardPage.jsp?productId=' + productId;\r\n"
-        		+ "}");
+        out.println("function payWithCOD(productId) {");
+        out.println("    window.location.href = 'codPage.jsp?productId=' + 102;");
+        out.println("}");
+        out.println("function payWithCard(productId) {");
+        out.println("    window.location.href = 'cardPage.jsp?productId=' + 102;");
+        out.println("}");
+        out.println("function PurchaseMore() {");
+        out.println("    window.location.href = 'index.jsp';");
+        out.println("}");
         out.println("function removeFromCart(productId) {");
         out.println("if (confirm('Are you sure you want to remove this item from your cart?')) {");
         out.println("window.location.href = 'removeItem?productId=' + productId;");

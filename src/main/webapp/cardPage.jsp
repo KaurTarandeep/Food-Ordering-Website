@@ -80,6 +80,7 @@
         <!-- Add more fields if needed (e.g., cardholder name, billing address) -->
 
         <button type="button" class="btn" onclick="validateForm()">Pay with Card</button>
+         <a class="btn" onclick='window.location.href = "index.jsp"'>Cancel Payment</a>
     </form>
 
     </div>

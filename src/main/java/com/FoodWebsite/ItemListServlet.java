@@ -46,6 +46,8 @@ public class ItemListServlet extends HttpServlet {
         out.println(".flex-container { padding: 10px; margin-left:50px}");
         out.println(".rightheader { flex: 20%; }");
         out.println(".rightheader a { margin-top: 10px ; }");
+        out.println(".maindiv { margin-left: 300px ; }");
+        
         out.println("</style>");
    
         out.println("<link rel='stylesheet' href='CSS files/HeaderContent.css'>");// Include external CSS file

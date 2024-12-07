@@ -63,8 +63,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Cash on Delivery</h1>
-        <p>Your order will be processed with Cash on Delivery.</p>
+        <h1>Address</h1>
+        
         <!-- Form to collect user address -->
         <form action="AddressServlet" method="post">
         	 <label for="houseNo" class="input-label">House No:</label>
@@ -80,8 +80,7 @@
             <input type="text" id="pincode" name="pincode" class="input-field" placeholder="Pincode"><br>
             <label for="country" class="input-label">Country:</label>
             <input type="text" id="country" name="country" class="input-field" placeholder="Country"><br>
-            <button type="submit" class="btn">Confirm Order</button>
-                 <a class="btn" onclick='window.location.href = "index.jsp"'>Cancel Payment</a>
+            <a class="btn" onclick='window.location.href = "orderConfirmation.jsp"'>Confirm Order</a>
         </form>
     </div>
 </body>
